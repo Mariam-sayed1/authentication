@@ -33,20 +33,7 @@ class MyApp extends StatelessWidget {
         "sign_in": (context) => SignInScreen(),
         "Home_screen": (context) => HomeScreen(),
       },
-      home: StreamBuilder(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
-          }
-          
-          if (snapshot.hasData) {
-            return HomeScreen();
-          }
-          
-          return SignInScreen();
-        },
-      ),
+      home:SignInScreen(),
     );
   }
 }
